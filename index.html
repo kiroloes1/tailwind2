@@ -1,0 +1,598 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-yzrjYbd0OaBKuY3F7+HgM+xZkJX4zq5mM+HRR0J2+EaLbVdHJcJZlQk8GCKQZMbho6mkKDbOmTfepCrsySPBZg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="icon" href="./pic/favicon.png">
+    <title>Tailwind(projects)</title>
+
+    <style>
+        
+            body {
+  font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+  :root {
+    --light: #ffffff;
+    --dark: #1f2937;
+    --dark2: #1f2937;             /* bg-gray-800 */
+    --gray: #d1d5db;          /* text-gray-300 */
+    --hover-bg: #374151;      /* hover:bg-gray-700 */
+    --hover-text: #ffffff;
+    --active-bg: #111827;     /* bg-gray-900 */
+    --gold: #f59e0b;          /* amber-500 */
+    --primary: #ef4444; 
+     --section-bg: #fffffe;   
+     --text:#6f7073;  
+  }
+  body.dark {
+  --light: #1f2937;
+  --dark: #ffffff;
+  --dark2: #1d2634;  
+  --gray: #9ca3af;
+  --hover-bg: #374151;
+  --hover-text: #fbbf24;
+  --active-bg: #111827;
+  --section-bg: #111827;
+  --text: #d1d5db;
+}
+/* style.css or inside <style> */
+    nav{
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    body{
+        background-color: var(--section-bg);
+    }
+.nav-bg {
+  background-color: var(--dark);
+   border-bottom-style: solid 5px var(--gold);
+}
+
+.text-light {
+  color: var(--light);
+}
+
+.text-gray {
+  color: var(--gray);
+}
+
+.hover-link:hover {
+  background-color: var(--hover-bg);
+  color: var(--hover-text);
+}
+
+.active-link {
+  background-color: var(--active-bg);
+  color: white
+}
+h1::after{
+    content: "";
+    position:relative;
+    display: block;
+    top:0;
+    left:0;
+    width: 3em ;
+    height: 3px;
+    background-color: var(--gold);
+    margin-top: 3px;
+    margin-bottom: 10px;
+}
+
+@media (max-width:700px) {
+    h1::after{
+
+    top:0;
+    left:30%;
+    width: 5em ;
+}
+}
+
+.main-header p{
+    color:var(--text);
+}
+  h1 span {
+    color: var(--gold);
+  }
+
+  .main-header h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--gold);
+    margin: 10px auto;
+  }
+
+  .feature-icon {
+    color: var(--gold);
+   
+  }
+
+  .learn-btn {
+    background-color: var(--primary);
+    color: var(--light);
+    
+    transition: 0.3s;
+  }
+
+  .learn-btn:hover {
+    background-color: #dc2626; /* red-600 */
+  }
+  .main-header{
+    background-color:var(--section-bg) !important;
+  }
+  .mini-card{
+    border: none;
+    background-color: var(--gold);
+    border-radius: 1em;
+    padding:2em 1em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+.mini-card {
+  background-color: var(--light);
+  border: 1px solid var(--gold);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* تأثير Hover */
+.mini-card:hover {
+  background-color: var(--hover-bg);
+  transform: translateY(-5px);
+}
+
+/* تنسيق الصورة داخل الكرت */
+.mini-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+
+.text-mini-card h4 {
+  font-size: 1.25rem;
+  color: var(--dark);
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.mini-card:hover h4 {
+color: var(--light);
+}
+
+.text-mini-card p {
+  color: var(--gray);
+  margin-bottom: 0.75rem;
+}
+
+/* الرابط داخل الكرت */
+.text-mini-card a {
+  color: var(--gold);
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.text-mini-card a:hover {
+  color: var(--light);
+}
+
+
+
+/* العنوان الرئيسي */
+.product-card h2 {
+  color: var(--dark);
+  position: relative;
+}
+
+.product-card h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--gold);
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+.meduim-card h4{
+    color: var(--light);
+}
+.meduim-card {
+  background-color: var(--dark);
+  border-radius: 1rem;
+  padding: 2rem;
+  height: 300px;
+  width: 100%;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+    </style>
+
+</head>
+
+<body>
+    <nav style="background-color: var(--dark2);" class="">
+  <div class=" mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="nav relative flex h-16 items-center justify-between  md:justify-between ">
+      <div onclick="menu()" class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+        <!-- Mobile menu button-->
+        <button type="button" aria-controls="mobile-menu" aria-expanded="false" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:ring-2 focus:ring-white focus:outline-hidden focus:ring-inset">
+          <span class="absolute -inset-0.5"></span>
+          <span class=" sr-only">Open main menu</span>
+ 
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="block size-6">
+            <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+    
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="hidden size-6">
+            <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+      
+     
+      <div class="visible md:hidden"></div>
+        <h2 style="color: white;" class="text-xl">BUR<span class= "text-orange-300">GER</span></h2>
+       
+
+   
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+            <div class="hidden sm:ml-6 sm:block">
+          <div class="flex space-x-4">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+  <a href="#" class="active-link rounded-md px-3 py-2 text-sm font-medium">Home</a>
+  <a href="#" class="text-gray hover-link rounded-md px-3 py-2 text-sm font-medium">About Us</a>
+  <a href="#" class="text-gray hover-link rounded-md px-3 py-2 text-sm font-medium">Menu</a>
+  <a href="#" class="text-gray hover-link rounded-md px-3 py-2 text-sm font-medium">Review</a>
+  <a href="#" class="text-gray hover-link rounded-md px-3 py-2 text-sm font-medium">Contact</a>
+  <a id="toggle-dark" href="#" class="text-gray hover-link rounded-md px-3 py-2 text-sm font-medium"><i class="fa-regular fa-moon"></i></a>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu, show/hide based on menu state. -->
+  <div id="mobile-menu" class="hidden sm:hidden">
+    <div class="flex flex-col space-y-1 px-2 pt-2 pb-3">
+      <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+  <a href="#" class="active-link rounded-md px-3 py-2 text-sm font-medium">Home</a>
+  <a href="#" class="text-gray hover-link rounded-md px-3 py-2 text-sm font-medium">About Us</a>
+  <a href="#" class="text-gray hover-link rounded-md px-3 py-2 text-sm font-medium">Menu</a>
+  <a href="#" class="text-gray hover-link rounded-md px-3 py-2 text-sm font-medium">Review</a>
+  <a href="#" class="text-gray hover-link rounded-md px-3 py-2 text-sm font-medium">Contact</a>
+  <a id="toggle-dark1" href="#" class="text-gray hover-link rounded-md px-3 py-2 text-sm font-medium"><i class="fa-regular fa-moon"></i></a>
+    </div>
+  </div>
+</nav>
+
+
+
+<main>
+ <section class="main-header py-12 bg-[var(--light)]">
+  <div class="container mx-auto flex flex-col items-center md:flex-row">
+    <div class="flex justify-center mb-6 md:mb-0">
+      <img class="w-2/3" src="./pic/home-image.png" alt="burger-image-header">
+    </div>
+    <div class="mx-8 md:container md:mx-auto text-center md:text-start">
+      <h1 class="text-5xl font-semibold md:text-6xl md:font-bold text-[var(--dark)]">
+        HAPPY TUMMY WITH <br><span>TASTY</span> BURGERS
+      </h1>
+      <p class="text-lg md:text-xl text-[var(--gray)] mt-4">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
+        fuga perferendis enim culpa quasi quia eius, labore voluptas corporis ad!
+      </p>
+      <div class="flex space-x-10 justify-center my-5 md:justify-start">
+        <div class="text-center">
+          <i class="fa-solid fa-burger feature-icon"></i>
+          <h5 class="text-[var(--dark)] font-semibold">Delicious</h5>
+        </div>
+        <div class="text-center">
+          <i class="fa-solid fa-leaf feature-icon"></i>
+          <h5 class="text-[var(--dark)] font-semibold">Fresh</h5>
+        </div>
+        <div class="text-center">
+          <i class="fa-solid fa-seedling feature-icon"></i>
+          <h5 class="text-[var(--dark)] font-semibold">Organic</h5>
+        </div>
+      </div>
+      <a href="#" class="learn-btn py-4 px-6 inline-block text-lg font-medium rounded-lg ">Learn More</a>
+    </div>
+  </div>
+</section>
+
+
+<section class="product-card my-28">
+    <h2 class="text-3xl font-semibold text-center my-10">product</h2>
+    <div class=" container mx-auto ">
+     
+        <div class="public-card-product   grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 ">
+            <div class="mini-card">
+                       <img class="w-1/5" src="./pic/burger-2.png" alt="burger-image">
+                    <div class="text-mini-card">
+                        <h4>FOOD</h4>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <a href="#">Buy online</a>
+                    </div>
+                  </div>
+
+                 <div class="mini-card">
+                    <img class="w-1/5 h-full"  src="./pic/promo-2.png" alt="burger-image">
+                    <div class="text-mini-card">
+                        <h4>Promo</h4>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <a href="#">Buy online</a>
+                    </div>
+                    </div>
+
+                <div class="mini-card">
+                    <img class="w-1/5" src="./pic/snack-1.png" alt="burger-image">
+                    <div class="text-mini-card">
+                        <h4>Snack</h4>
+                        <p>Lorem ipsum dolor sit amet.</p>
+                        <a href="#">Buy online</a>
+                    </div>
+                   </div>
+        </div>
+<div class="spacific-card-product grid grid-cols-1 lg:grid-cols-2 gap-6 p-4">
+  <div class="meduim-card flex items-center gap-4">
+    <img class="w-24 h-24 object-contain" src="./pic/snack-1.png" alt="burger-image">
+    <div class="text-mini-card">
+      <h4>FOOD</h4>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <a href="#">Buy online</a>
+    </div>
+  </div>
+
+  <div class="meduim-card flex items-center gap-4">
+    <img class="w-24 h-24 object-contain" src="./pic/snack-1.png" alt="burger-image">
+    <div class="text-mini-card">
+      <h4>FOOD</h4>
+      <p>Lorem ipsum dolor sit amet.</p>
+      <a href="#">Buy online</a>
+    </div>
+  </div>
+</div>
+
+    </div>
+</section>
+
+
+<section class="about py-20" style="background-color: var(--section-bg); color: var(--text);">
+  <div class="container mx-auto flex flex-col items-center gap-10 lg:flex-row lg:justify-between px-4">
+    
+    <!-- صورة -->
+    <div class="w-full lg:w-1/2">
+      <img class="rounded-xl shadow-lg w-full " src="./pic/about.jpg" alt="about-image">
+    </div>
+
+    <!-- نص -->
+    <div class="about-text w-full lg:w-1/2 space-y-5 text-center lg:text-left">
+      <h2 class="text-3xl font-bold text-[var(--dark)] leading-relaxed">
+        FIND FOOD AND DRINKS,<br>ALL-IN-ONE PLACE FOR YOUR BEST TASTE
+      </h2>
+
+      <p class="text-base leading-relaxed">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, quisquam?
+        A ducimus accusamus ullam dolores et fugiat quidem? Officia earum ullam aut,
+        totam commodi laboriosam nam consectetur reprehenderit nobis consequuntur!
+      </p>
+
+      <!-- قائمة مزايا -->
+      <ul class="space-y-2 text-sm font-medium">
+        <li><span class="text-[var(--gold)]">✓</span>  Best price</li>
+        <li><span class="text-[var(--gold)]">✓</span>  Fresh ingredients</li>
+        <li><span class="text-[var(--gold)]">✓</span>  Best Service</li>
+        <li><span class="text-[var(--gold)]">✓</span>  Health Protocol</li>
+      </ul>
+
+      <!-- زر -->
+      <a href="#" class="inline-block bg-[var(--gold)] text-white py-2 px-6 rounded-md shadow hover:bg-yellow-500 transition">
+        About Us
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="menu-product py-20" style="background-color: var(--section-bg); color: var(--text);">
+  <div class="container mx-auto text-center px-4">
+    
+    <!-- العنوان -->
+    <h2 class="text-3xl font-bold text-[var(--dark)] mb-4">OUR BEST MENU</h2>
+
+    <!-- الفقرة -->
+    <p class="max-w-3xl mx-auto mb-8 text-base leading-relaxed">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. At dolores, minima pariatur
+     
+    </p>
+
+    <!-- الأزرار (التصنيفات) -->
+    <div class="gategory flex flex-wrap justify-center gap-3 md:gap-4 mb-10">
+      <a href="#"
+         class="px-6 py-2 rounded-lg bg-[var(--gold)] text-white hover:bg-yellow-600 transition">
+         All
+      </a>
+      <a href="#"
+         class="px-6 py-2 rounded-lg border border-[var(--gold)] text-[var(--gold)] hover:bg-[var(--gold)] hover:text-white transition">
+         Food
+      </a>
+      <a href="#"
+         class="px-6 py-2 rounded-lg border border-[var(--gold)] text-[var(--gold)] hover:bg-[var(--gold)] hover:text-white transition">
+         Snack
+      </a>
+      <a href="#"
+         class="px-6 py-2 rounded-lg border border-[var(--gold)] text-[var(--gold)] hover:bg-[var(--gold)] hover:text-white transition">
+         Beverage
+      </a>
+    </div>
+
+
+
+  </div>
+</section>
+
+
+<section class="menu-product py-20" style="background-color: var(--section-bg); color: var(--text);">
+  <div class="container mx-auto text-center px-4">
+    
+    <!-- العنوان -->
+    <h2 class="text-3xl font-bold text-[var(--dark)] mb-4">CUSTOMER REVIEW</h2>
+
+    <!-- الفقرة -->
+    <p class="max-w-3xl mx-auto mb-8 text-base leading-relaxed">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. At dolores, minima pariatur
+     
+    </p>
+
+<!-- all customer card -->
+    <div>
+
+    </div>
+
+
+
+  </div>
+</section>
+
+
+<section class="order bg-[var(--gold)] py-12 my-20">
+  <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-4 space-y-6 md:space-y-0 md:space-x-10">
+
+    <!-- النص -->
+    <div class="text-center md:text-left max-w-md">
+      <h3 class="text-2xl font-bold text-[var(--dark)] mb-2">GET EXCLUSIVE UPDATES</h3>
+      <p class="text-[var(--light)]">Subscribe to our newsletter to get the latest deals and offers.</p>
+    </div>
+
+    <!-- الفورم -->
+    <form action="" class="flex flex-col sm:flex-row w-full max-w-md gap-4">
+      <input 
+        type="email" 
+        placeholder="Enter your email address" 
+        class="px-4 py-3 md:py-2 rounded-md w-full 
+               bg-[var(--light)] 
+               text-[var(--dark)]
+               placeholder-[var(--text)] 
+               focus:outline-none focus:ring-2 focus:ring-[var(--light)]"
+        required>
+      
+      <button 
+        type="submit" 
+        class="flex items-center 
+               bg-[var(--light)] 
+               text-[var(--gold)] 
+               font-semibold px-6 py-3 rounded-md 
+               hover:bg-[var(--dark)] 
+               hover:text-[var(--light)] 
+               transition duration-300">
+        <i class="fa-regular fa-paper-plane mr-2"></i> Subscribe
+      </button>
+    </form>
+
+  </div>
+</section>
+
+
+
+</main>
+
+<footer class="bg-[var(--dark2)] text-[var(--light)] py-10">
+  <div class="container mx-auto flex flex-col md:flex-row justify-around items-start gap-8 px-4">
+
+    <!-- Logo or Site Info -->
+    <div class="ico">
+      <h2 class="text-2xl font-bold text-[var(--gold)] mb-2"><span class="text-white">BUR</span>GER</h2>
+      <p class="text-[var(--gray)]">Delicious guilt-free vegan ice cream for everyone!</p>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="nav">
+      <h3 class="text-xl font-semibold mb-3  text-white">Navigation</h3>
+      <ul class="space-y-2 text-[var(--gray)]">
+        <li><a href="#" class="hover:text-[var(--gold)]">Home</a></li>
+        <li><a href="#" class="hover:text-[var(--gold)]">Menu</a></li>
+        <li><a href="#" class="hover:text-[var(--gold)]">About</a></li>
+        <li><a href="#" class="hover:text-[var(--gold)]">Review</a></li>
+        <li><a href="#" class="hover:text-[var(--gold)]">Contact</a></li>
+
+      </ul>
+    </div>
+
+    <!-- Extra Info -->
+    <div class="info">
+      <h3 class="text-xl font-semibold mb-3 text-white">Info</h3>
+      <ul class="space-y-2 text-[var(--gray)]">
+        <li><a href="#" class="hover:text-[var(--gold)]">Privacy Policy</a></li>
+        <li><a href="#" class="hover:text-[var(--gold)]">Terms of Service</a></li>
+        <li><a href="#" class="hover:text-[var(--gold)]">FAQ</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact space-y-4">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-phone text-[var(--gold)] text-2xl"></i>
+        <div>
+          <p class="font-bold  text-white">01270857659</p>
+          <p class="text-[var(--gray)] text-sm">Got a question? Call us 24/7</p>
+        </div>
+      </div>
+
+      <!-- Social Icons -->
+      <div class="social flex gap-4 text-[var(--gold)] text-2xl">
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script>
+    let menuAppear=document.querySelector("#mobile-menu");
+    function menu(){
+        menuAppear.classList.toggle("hidden")
+    }
+
+    
+  const toggleBtn = document.getElementById('toggle-dark');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+  });
+    const toggleBtn1= document.getElementById('toggle-dark1');
+  toggleBtn1.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+  });
+
+
+</script>
+</body>
+</html>
