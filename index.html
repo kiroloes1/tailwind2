@@ -44,6 +44,38 @@
   --section-bg: #111827;
   --text: #d1d5db;
 }
+.card {
+  background-color: var(--section-bg);
+  color: var(--text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  justify-content: center;
+}
+
+
+.card h4 {
+  color: var(--dark);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.card p {
+  font-size: 0.95rem;
+  text-align: center;
+  color: var(--text);
+  margin: 0.25rem 0;
+}
+
+.card p strong {
+  color: var(--primary);
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
 /* style.css or inside <style> */
     nav{
         position: sticky;
@@ -450,7 +482,13 @@ color: var(--light);
       </a>
     </div>
 
+<!-- all customer card -->
+    <div class="all-menu  ">
+        <div class="container gap-2 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 ">
+         
+        </div>
 
+    </div>
 
   </div>
 </section>
@@ -468,10 +506,12 @@ color: var(--light);
      
     </p>
 
-<!-- all customer card -->
-    <div>
+    <div class="all-reviews container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 my-10">
 
     </div>
+
+
+
 
 
 
@@ -576,7 +616,210 @@ color: var(--light);
 </footer>
 
 
+
 <script>
+const reviews = [
+  {
+    name: "Ahmed Hassan",
+    comment: "Excellent service and high-quality products!",
+    rating: 5,
+    image: "./pic/customer/review-1.jpg"
+  },
+  {
+    name: "Mona Samir",
+    comment: "Good prices, but delivery was a bit late.",
+    rating: 4,
+    image: "./pic/customer/review-2.jpg"
+  },
+  {
+    name: "Youssef Adel",
+    comment: "The product quality exceeded my expectations.",
+    rating: 5,
+    image: "./pic/customer/review-3.jpg"
+  },
+  {
+    name: "Sara Nabil",
+    comment: "Not bad, but packaging was poor.",
+    rating: 3,
+    image: "./pic/customer/review-4.jpg"
+  },
+  {
+    name: "Kareem Mohamed",
+    comment: "Very satisfied, I’ll buy again!",
+    rating: 5,
+    image: "./pic/customer/review-5.jpg"
+  }
+];
+
+
+const reviewContainer = document.querySelector('.all-reviews');
+
+reviews.forEach(review => {
+  reviewContainer.innerHTML += `
+<div class="review-card bg-[var(--light)] shadow-md rounded-lg p-6 text-center">
+  <img src="${review.image}" alt="${review.name}" class="w-24 h-24 rounded-full mx-auto mb-4 object-cover">
+  <h4 class="text-lg font-bold text-[var(--dark)]">${review.name}</h4>
+  <p class="text-sm text-[var(--text)] mt-2 mb-3">"${review.comment}"</p>
+  <div class="text-[var(--gold)] text-lg">
+    ${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}
+  </div>
+</div>
+
+  `;
+});
+const productList = [
+  {
+    image: "./pic/product/beverage-1.png",
+    title: "Cold Beverage 1",
+    details: "Refreshing cold drink to energize your day.",
+    price: 15,
+    category: "beverage"
+  },
+  {
+    image: "./pic/product/beverage-2.png",
+    title: "Cold Beverage 2",
+    details: "Cool and tasty, perfect for hot weather.",
+    price: 18,
+    category: "beverage"
+  },
+  {
+    image: "./pic/product/beverage-3.png",
+    title: "Cold Beverage 3",
+    details: "Natural and sugar-free drink.",
+    price: 17,
+    category: "beverage"
+  },
+  {
+    image: "./pic/product/beverage-4.png",
+    title: "Cold Beverage 4",
+    details: "Sparkling juice with fruity flavor.",
+    price: 20,
+    category: "beverage"
+  },
+  {
+    image: "./pic/product/beverage-5.png",
+    title: "Cold Beverage 5",
+    details: "Chilled soda for a refreshing break.",
+    price: 12,
+    category: "beverage"
+  },
+  {
+    image: "./pic/product/burger-1.png",
+    title: "Cheese Burger",
+    details: "Juicy beef burger with melted cheese.",
+    price: 45,
+    category: "burger"
+  },
+  {
+    image: "./pic/product/burger-2.png",
+    title: "Chicken Burger",
+    details: "Crispy chicken fillet with fresh lettuce.",
+    price: 40,
+    category: "burger"
+  },
+  {
+    image: "./pic/product/burger-3.png",
+    title: "Double Burger",
+    details: "Double the beef, double the flavor.",
+    price: 55,
+    category: "burger"
+  },
+  {
+    image: "./pic/product/burger-4.png",
+    title: "Veggie Burger",
+    details: "Healthy and tasty vegetarian burger.",
+    price: 38,
+    category: "burger"
+  },
+  {
+    image: "./pic/product/burger-5.png",
+    title: "Spicy Burger",
+    details: "Hot and spicy burger for thrill seekers.",
+    price: 42,
+    category: "burger"
+  },
+  {
+    image: "./pic/product/burger-6.png",
+    title: "Bacon Burger",
+    details: "Savory beef with crispy bacon.",
+    price: 48,
+    category: "burger"
+  },
+  {
+    image: "./pic/product/promo-1.png",
+    title: "Combo Meal 1",
+    details: "Burger + Fries + Drink – special offer.",
+    price: 60,
+    category: "promo"
+  },
+  {
+    image: "./pic/product/promo-2.png",
+    title: "Family Meal",
+    details: "Meal deal for 3 persons at great price.",
+    price: 120,
+    category: "promo"
+  },
+  {
+    image: "./pic/product/snack-1.png",
+    title: "French Fries",
+    details: "Crispy golden fries with salt.",
+    price: 20,
+    category: "snack"
+  },
+  {
+    image: "./pic/product/snack-2.png",
+    title: "Onion Rings",
+    details: "Crispy fried onion rings.",
+    price: 22,
+    category: "snack"
+  },
+  {
+    image: "./pic/product/snack-3.png",
+    title: "Cheese Balls",
+    details: "Melted cheese inside crunchy balls.",
+    price: 25,
+    category: "snack"
+  },
+  {
+    image: "./pic/product/snack-4.png",
+    title: "Chicken Nuggets",
+    details: "Crispy breaded chicken bites.",
+    price: 30,
+    category: "snack"
+  },
+  {
+    image: "./pic/product/snack-5.png",
+    title: "Mozzarella Sticks",
+    details: "Cheesy sticks with marinara dip.",
+    price: 27,
+    category: "snack"
+  },
+  {
+    image: "./pic/product/snack-6.png",
+    title: "Mini Tacos",
+    details: "Spicy mini tacos with salsa.",
+    price: 32,
+    category: "snack"
+  }
+];
+
+// HTML container to add the cards
+const container = document.querySelector(".all-menu .container");
+
+// Create and append each product card
+productList.forEach(product => {
+  container.innerHTML += `
+    <div class="card flex flex-col justify-center shadow-md my-2 mx-3 py-5 px-10  ">
+        <div class="flex justify-center">
+      <img class="w-1/2 md:w-full "src="${product.image}" alt="${product.title}">
+      </div>
+      <h4>${product.title}</h4>
+      <p>${product.details}</p>
+      <p><strong>${product.price} EGP</strong></p>
+    </div>
+  `;
+});
+
     let menuAppear=document.querySelector("#mobile-menu");
     function menu(){
         menuAppear.classList.toggle("hidden")
